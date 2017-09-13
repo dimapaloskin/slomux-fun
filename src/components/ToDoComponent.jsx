@@ -18,7 +18,9 @@ class ToDoComponent extends Component {
     })
   }
 
-  addTodo () {
+  addTodo (event) {
+    event.preventDefault()
+
     this.props.addTodo(this.state.todoText)
     this.setState({
       todoText: ''
@@ -33,12 +35,15 @@ class ToDoComponent extends Component {
       <div>
         <label>{title || 'Без названия'}</label>
         <div>
-          <input
-            value={todoText}
-            placeholder='Название задачи'
-            onChange={this.updateText}
-          />
-          <button onClick={this.addTodo}>Добавить</button>
+          <form onSubmit={this.addTodo}>
+            <input
+              value={todoText}
+              placeholder='Название задачи'
+              onChange={this.updateText}
+              ref={node => node && node.focus()}
+            />
+            <button type='submit'>Добавить</button>
+          </form>
           <ul>
             {todos.map((todo, idx) => <li key={idx}>{todo}</li>)}
           </ul>
