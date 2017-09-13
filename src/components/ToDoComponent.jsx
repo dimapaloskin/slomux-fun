@@ -11,8 +11,8 @@ class ToDoComponent extends Component {
     }
   }
 
-  updateText (e) {
-    const { value } = e.target
+  updateText (event) {
+    const { value } = event.target
     this.setState({
       todoText: value
     })
