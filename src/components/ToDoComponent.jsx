@@ -20,6 +20,9 @@ class ToDoComponent extends Component {
 
   addTodo (event) {
     event.preventDefault()
+    if (this.state.todoText === '') {
+      return
+    }
 
     this.props.addTodo(this.state.todoText)
     this.setState({
