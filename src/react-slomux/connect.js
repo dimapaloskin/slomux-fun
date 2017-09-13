@@ -8,6 +8,7 @@ const connect = (mapStateToProps, mapDispatchToProps) =>
         super(props)
         this.handleChange = this.handleChange.bind(this)
       }
+
       componentDidMount () {
         const { store } = this.context
         store.subscribe(this.handleChange)
